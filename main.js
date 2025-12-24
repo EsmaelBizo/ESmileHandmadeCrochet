@@ -1,5 +1,4 @@
 let cartBtn = document.querySelector('.cart-button');
-let added = document.querySelector('.added-done');
 let cartDrwaer = document.querySelector('.cart-drawer');
 let overlay = document.querySelector('.overlay');
 let cartProducts = document.querySelector('.cart-products');
@@ -109,10 +108,18 @@ function addToCart(product) {
 }
 
 function addedDone() {
-    added.classList.remove('hidden');
-    setTimeout(() => {
-        added.classList.add('hidden');
-    }, 2000)
+    let added = document.createElement('div');
+    added.className = 'added-done';
+    added.innerHTML = `تمت اللإضافة بنجاح
+            <div class="done">
+                <span class="right-part"></span>
+                <span class="left-part"></span>
+            </div>`;
+    cartBtn.appendChild(added);
+
+    setTimeout(() => added.classList.add('appear'), 100);
+    setTimeout(() => added.classList.add('hidden'), 2000);
+    setTimeout(() => added.classList.remove('appear'), 2300);
 }
 
 whatsCart();

@@ -4,8 +4,8 @@
     --main-color-alt: #533847;
     --secondary-color: #c5a78f;
     --main-transition: 0.3s;
-    --section-background: #e7c8abbe;
-    --section-background-alt: #eec0d1c9;
+    --section-background: #eec0d1;
+    --section-background-alt: #eec0d1e5;
     --section-padding: clamp(52px, 10vw, 100px);
     --main-grey: #777;
     --main-line-height: 1.7;
@@ -208,7 +208,7 @@ button {
 
 .added-done {
     position: fixed;
-    right: 20px;
+    right: -100%;
     bottom: 80px;
     background-color: var(--main-color-alt);
     color: var(--secondary-color);
@@ -217,6 +217,7 @@ button {
     font-size: 20px;
     border-radius: 6px;
     transition: 0.5s;
+    display: flex;
 }
 
 .added-done:hover {
@@ -224,7 +225,37 @@ button {
 }
 
 .added-done.hidden {
-    right: -100%;
+    opacity: 0;
+}
+
+.added-done.appear {
+    right: 20px;
+}
+
+.added-done .done {
+    display: flex;
+    align-items: center;
+    width: 34px;
+    padding-right: 5px;
+}
+
+.added-done .done span {
+    display: block;
+    background-color: var(--secondary-color);
+    height: 3px;
+    width: 0px;
+    transition: 0.3s;
+    transition-delay: 0.5s;
+}
+
+.added-done.appear .done .left-part {
+    transform: rotate(45deg) translateX(6px);
+    width: 10px;
+}
+
+.added-done.appear .done .right-part {
+    transform: rotate(-40deg);
+    width: 20px;
 }
 
 .added-done::after {
@@ -279,7 +310,7 @@ button {
 .special-heading {
     position: relative;
     width: fit-content;
-    margin: 0 auto 30px;
+    margin: 0 auto 50px;
 }
 
 .special-heading h1 {
@@ -335,13 +366,53 @@ button {
 
 .about .content {
     text-align: center;
-    font-size: 20px;
+    font-size: 18px;
     line-height: var(--main-line-height);
-    padding: 0 40px;
+}
+
+@media (min-width: 767px) {
+    .about .content {
+        text-align: center;
+        font-size: 20px;
+        line-height: var(--main-line-height);
+    }
+}
+
+.features {
+    background-color: var(--section-background-alt);
+    padding: var(--section-padding) 0;
+    text-align: center;
+}
+
+.features .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.features .feat {
+    padding: 10px;
+}
+
+.features .feat i {
+    color: var(--main-color-light);
+}
+
+.features .feat h3 {
+    font-weight: 800;
+    margin: 20px;
+    font-size: 18px;
+    color: #1d1419;
+}
+
+.features .feat p {
+    line-height: var(--main-line-height);
+    color: var(--main-color-alt);
+    font-size: 16px;
 }
 
 .latest-products, .all-products {
-    background-color: var(--section-background-alt);
+    background-color: var(--section-background);
 }
 
 .latest-products .description {
@@ -663,7 +734,7 @@ button {
 }
 
 .footer .container {
-    color: white;
+    color: #f0dfd1;
     position: relative;
     z-index: 2;
     text-align: center;
@@ -688,10 +759,11 @@ button {
 .footer hr {
     width: 220px;
     margin: 20px auto;
+    border-color: var(--main-color-light);
 }
 
 .footer .social i {
-    color: white;
+    color: #f0dfd1;
     margin: 0 14px 80px;
     cursor: pointer;
     transition: var(--main-transition);
