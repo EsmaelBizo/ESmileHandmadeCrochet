@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="master.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700&display=swap" rel="stylesheet">
+    <title>E-Smile Handmade/Products</title>
+</head>
+
+<body>
+    <div class="section all-products" id="all-products">
+        <a href="index.html#products">
+            <i class="fa fa-arrow-left back-home"></i>
+        </a>
+        <div class="container">
+            <div class="special-heading">
+                <span class="before">(:</span>
+                <h1 class="title">أعمالنا</h1>
+                <span class="after">:)</span>
+            </div>
+            <div class="products"></div>
+        </div>
+    </div>
+    <button class="cart-button">
+        <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="w-5 h-5"
+        viewBox="0 0 24 24"
+        fill="none"
+        >
+        <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-width="1.6"
+            d="M3 6h2l1.6 9.6c.1.9.9 1.6 1.8 1.6h7.4c.9 0 1.7-.7 1.8-1.6L19 9H7"
+        />
+        </svg>
+        <div class="added-done hidden">تمت اللإضافة بنجاح ✔</div>
+    </button>
+    <div class="cart-drawer">
+        <h3 class="head">
+            <span class="close-cart">⨉</span>
+            سلة المشتريات
+        </h3>
+        <div class="cart-products"></div>
+        <div class="foot">
+            <div class="total-price">السعر الإجمالي: <span>$0</span></div>
+            <a target="_blank">طلب المنتجات عبر واتساب</a>
+        </div>
+    </div>
+    <div class="overlay hidden"></div>
+    <script src="main.js"></script>
+</body>
+
+</html>
