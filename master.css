@@ -534,9 +534,15 @@ button {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    width: 200px;
-    margin: 0 40px;
+    margin: 0 8px;
     color: #1d1419;
+}
+
+@media (min-width: 400px) {
+    .cart-products .product .info {
+        margin: 0 40px;
+        width: 200px;
+    }
 }
 
 .cart-products .product .info>div {
