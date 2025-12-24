@@ -157,7 +157,7 @@ button {
     font-weight: bold;
     font-size: 30px;
     position: relative;
-    font-family: monospace;
+    font-family: 'Roboto Mono', monospace;
 }
 
 @media (max-width: 767px) {
@@ -331,7 +331,7 @@ button {
 }
 
 .special-heading .before, .special-heading .after {
-    font-family: Verdana, Geneva, Tahoma, sans-serif ;
+    font-family: 'Roboto Mono', monospace;
     position: absolute;
     top: 50%;
     transition: var(--main-transition);
@@ -341,7 +341,7 @@ button {
 }
 
 .special-heading .before {
-    transform: translate(24px, -50%);
+    transform: translate(28.5px, -50%);
     right: 50%;
 }
 
@@ -351,7 +351,7 @@ button {
 }
 
 .special-heading .after {
-    transform: translate(-24px, -50%);
+    transform: translate(-28.5px, -50%);
     left: 50%;
 }
 
@@ -775,7 +775,7 @@ button {
 }
 
 .footer p span {
-    font-family: monospace;
+    font-family: 'Roboto Mono', monospace;
     font-size: 18px;
     font-weight: bold;
     color: var(--main-color-light);
