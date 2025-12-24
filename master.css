@@ -121,7 +121,7 @@ button {
     gap: 2px;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 500px) {
     .header .menu {
         font-size: 16px;
     }
@@ -424,7 +424,7 @@ button {
     transition: var(--main-transition);
 }
 
-@media(max-width: 767px) {
+@media(max-width: 500px) {
     .products .product .getItem {
         font-size: 16px;
     }
