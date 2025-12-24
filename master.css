@@ -123,7 +123,7 @@ button {
 
 @media (max-width: 767px) {
     .header .menu {
-        font-size: 18px;
+        font-size: 16px;
     }
 }
 
@@ -422,6 +422,12 @@ button {
     padding: 10px 0;
     cursor: pointer;
     transition: var(--main-transition);
+}
+
+@media(max-width: 767px) {
+    .products .product .getItem {
+        font-size: 16px;
+    }
 }
 
 .products .product .whats {
