@@ -341,23 +341,23 @@ button {
 }
 
 .special-heading .before {
-    transform: translate(28.5px, -50%);
+    transform: translate(28.6px, -50%);
     right: 50%;
 }
 
 .special-heading.open .before {
     right: -40px;
-    transform: translate(0, -50%);
+    transform: translate(5px, -50%);
 }
 
 .special-heading .after {
-    transform: translate(-28.5px, -50%);
+    transform: translate(-29px, -50%);
     left: 50%;
 }
 
 .special-heading.open .after {
     left: -40px;
-    transform: translate(0, -50%);
+    transform: translate(-5px, -50%);
 }
 
 .about {

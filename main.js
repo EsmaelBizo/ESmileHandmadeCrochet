@@ -11,39 +11,39 @@ let cart = new Map();
 document.addEventListener('DOMContentLoaded', () => {
     const latestProducts = document.querySelector('.latest-products .products');
     const allProducts = document.querySelector('.all-products .products');
-    
+
     let myRequest = new XMLHttpRequest();
-    
+
     myRequest.onreadystatechange = () => {
         if (myRequest.readyState === 4 && myRequest.status === 200) {
-        let objRequest = JSON.parse(myRequest.responseText);
-        
-        if (latestProducts) {
-            for (let i = 0; i < 4; i++) {
-                addItemTo(objRequest[i], latestProducts);
-            }
-        }
-        
-        if (allProducts) {
-            for (let i = 0; i < objRequest.length; i++) {
-                addItemTo(objRequest[i], allProducts);
-            }
-        }
-        
-        if (localStorage.esmilecart) {
-            let array = localStorage.esmilecart.split('|');
-            for (let i = 0; i < array.length; i++) {
-                array[i] = array[i].split(',');
-                array[i][0] = Number(array[i][0]);
-                array[i][1] = Number(array[i][1]);
-                cart.set(array[i][0], {product: objRequest[array[i][0]-1], qty: array[i][1]})
-            }
-        }
-    }
-};
+            let objRequest = JSON.parse(myRequest.responseText);
 
-myRequest.open("GET", "products.json", true);
-myRequest.send();
+            if (latestProducts) {
+                for (let i = 0; i < 4; i++) {
+                    addItemTo(objRequest[i], latestProducts);
+                }
+            }
+
+            if (allProducts) {
+                for (let i = 0; i < objRequest.length; i++) {
+                    addItemTo(objRequest[i], allProducts);
+                }
+            }
+
+            if (localStorage.esmilecart) {
+                let array = localStorage.esmilecart.split('|');
+                for (let i = 0; i < array.length; i++) {
+                    array[i] = array[i].split(',');
+                    array[i][0] = Number(array[i][0]);
+                    array[i][1] = Number(array[i][1]);
+                    cart.set(array[i][0], { product: objRequest[array[i][0] - 1], qty: array[i][1] })
+                }
+            }
+        }
+    };
+
+    myRequest.open("GET", "products.json", true);
+    myRequest.send();
 });
 
 function addItemTo(obj, ele) {
@@ -57,10 +57,10 @@ function addItemTo(obj, ele) {
     let img = document.createElement('img');
     img.src = obj.image;
     imgContainer.appendChild(img);
-    
+
     let whats = document.createElement('a');
     whats.classList.add('getItem', 'whats');
-    whats.href = `https://wa.me/963933855160?text=2%مرحباًC%20أود20%طلب%20المنتج20%رقم${obj.id}`;
+    whats.href = `https://wa.me/963933855160?text=مرحباً\nأود طلب المنتج رقم ${obj.id}`;
     whats.target = '_blank';
     whats.innerHTML = 'طلب عبر واتساب';
     product.appendChild(whats);
@@ -73,7 +73,7 @@ function addItemTo(obj, ele) {
     inCart.addEventListener('click', () => {
         addToCart(obj);
     })
-    
+
     let price = document.createElement('span');
     price.className = 'price';
     price.innerHTML = `$${obj.price}`;
@@ -101,7 +101,7 @@ function decQty(p) {
 
 function addToCart(product) {
     if (cart.get(product.id)) cart.get(product.id).qty++;
-    else cart.set(product.id, {product, qty: 1});
+    else cart.set(product.id, { product, qty: 1 });
     updateCartStorage();
     updateUICart();
     addedDone();
@@ -138,8 +138,8 @@ function whatsCart() {
         sendCart.href = 'products.html';
         sendCart.target = '_self';
     } else {
-        sendCart.href = `https://wa.me/963933855160?text=2%مرحباًC%20أود20%طلب%20المنتجات${localStorage.esmilecart}`;
-        sendCart.target = '_blank'; 
+        sendCart.href = `https://wa.me/963933855160?text=مرحباً\n :\nأود طلب المنتجات${localStorage.esmilecart}`;
+        sendCart.target = '_blank';
     }
 }
 
@@ -162,8 +162,8 @@ closeCart.onclick = () => {
 function updateUICart() {
     cart.size ? cartProducts.innerHTML = '' : cartProducts.innerHTML = "<p class='empty'>السلة فارغة</p>";
     let total = 0;
-    
-    cart.forEach((p)=> {
+
+    cart.forEach((p) => {
         let productDiv = document.createElement('div');
         productDiv.className = 'product';
 
@@ -173,7 +173,7 @@ function updateUICart() {
 
         cartProducts.appendChild(productDiv);
 
-        total += p.product.price*p.qty;
+        total += p.product.price * p.qty;
     })
     totalPrice.innerHTML = `$${total}`;
 }
