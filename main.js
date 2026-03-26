@@ -89,11 +89,13 @@ function addItemTo(obj, ele) {
 
     let img = document.createElement('img');
     img.src = obj.image;
+    img.loading = "lazy";
     imgContainer.appendChild(img);
 
     let whats = document.createElement('a');
     whats.classList.add('getItem', 'whats');
-    whats.href = `https://wa.me/963933855160?text=مرحباً\nأود طلب المنتج رقم ${obj.id}`;
+    whats.href = `https://wa.me/963933855160?text=مرحباً E-SMILE (: %0Aأود طلب المنتجات التالية:%0A المنتج رقم ${obj.id} (الكمية: ${1})
+        %0A%0Aشكراً لكم!`;
     whats.target = '_blank';
     whats.innerHTML = 'طلب عبر واتساب';
     product.appendChild(whats);

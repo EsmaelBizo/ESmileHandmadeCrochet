@@ -296,7 +296,8 @@ button {
 
 .landing {
     height: 100vh;
-    background-image: url('images/landing.jpg');
+    background-color: #af477b;
+    background-image: url('images/landing.webp');
     background-color: var(--main-color-light);
     background-size: cover;
     background-position: 40% 50%;
@@ -807,7 +808,8 @@ button {
 }
 
 .footer {
-    background-image: url('images/wool.jpg');
+    background-color: #af477b;
+    background-image: url('images/footer.webp');
     background-size: cover;
     position: relative;
     padding: 0;
