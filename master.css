@@ -482,7 +482,17 @@ button {
 }
 
 .features .feat {
-    padding: 10px;
+    padding: 26px 20px;
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(83, 56, 71, 0.12);
+    border-radius: 18px;
+    box-shadow: 0 12px 30px rgba(58, 40, 50, 0.08);
+    transition: transform var(--main-transition), box-shadow var(--main-transition);
+}
+
+.features .feat:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 35px rgba(58, 40, 50, 0.14);
 }
 
 .features .feat i {
@@ -502,7 +512,8 @@ button {
     font-size: 16px;
 }
 
-.latest-products, .all-products {
+.latest-products,
+.all-products {
     background-color: var(--section-background);
 }
 
@@ -543,10 +554,17 @@ button {
     display: flex;
     flex-direction: column;
     position: relative;
-    border-radius: 12px;
+    border-radius: 18px;
     overflow: hidden;
-    border: 12px solid var(--main-color);
-    border-bottom: none;
+    border: 1px solid rgba(58, 40, 50, 0.18);
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 16px 32px rgba(58, 40, 50, 0.12);
+    transition: transform var(--main-transition), box-shadow var(--main-transition);
+}
+
+.products .product:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 38px rgba(58, 40, 50, 0.18);
 }
 
 .products .product .image {
@@ -555,7 +573,7 @@ button {
     position: relative;
     overflow: hidden;
     display: flex;
-    background-color: #1d1419;
+    background: linear-gradient(180deg, #23171d, #1d1419);
 }
 
 .products .product img {
@@ -568,19 +586,20 @@ button {
     transform: translateX(-50%);
     top: -2px;
     border-radius: 0 0 16px 16px;
-    background-color: var(--main-color);
+    background: linear-gradient(135deg, var(--main-color), var(--main-color-alt));
     color: var(--secondary-color);
     font-weight: bold;
     padding: 4px 16px;
     font-size: 18px;
     z-index: 10;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.16);
 }
 
 .products .product .getItem {
     font-size: 20px;
     text-align: center;
     color: var(--secondary-color);
-    background-color: var(--main-color);
+    background: linear-gradient(135deg, var(--main-color), var(--main-color-alt));
     padding: 10px 0;
     cursor: pointer;
     transition: var(--main-transition);
@@ -597,7 +616,7 @@ button {
 }
 
 .products .product .getItem:hover {
-    background-color: var(--secondary-color);
+    background: linear-gradient(135deg, var(--secondary-color), #ebd1bb);
     color: var(--main-color);
 }
 
@@ -684,7 +703,6 @@ button {
     height: 120px;
     background-color: #1d1419;
     border-radius: 6px;
-    margin-right: 5px;
 }
 
 .cart-products .product .p-image img {
@@ -719,24 +737,29 @@ button {
 
 .cart-products .product .info .count .incdec {
     display: flex;
-    border-radius: 4px;
-    border: 2px solid #44323c;
+    border-radius: 999px;
+    border: 2px solid rgba(58, 40, 50, 0.72);
     font-weight: bold;
     transform: translateX(-33%);
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.4);
 }
 
 .cart-products .product .info .count .incdec .num {
     border-left: 1px solid #44323c;
     border-right: 1px solid #44323c;
-    padding: 0 10px;
+    padding: 0 12px;
+    min-width: 28px;
+    text-align: center;
 }
 
 .cart-products .product .info .count .incdec button {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 20px;
-    padding: 0 10px;
+    font-size: 18px;
+    padding: 0 12px;
     transition: var(--main-transition);
     letter-spacing: -1px;
+    background-color: rgba(255, 255, 255, 0.48);
 }
 
 .cart-products .product .info .count .incdec button:hover {
