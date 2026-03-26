@@ -152,7 +152,7 @@ button {
     background-color: var(--secondary-color);
 }
 
-.header .logo {
+.logo {
     color: var(--main-color-light);
     font-weight: bold;
     font-size: 30px;
@@ -176,7 +176,7 @@ button {
     100% { transform: scale(0.99); }
 }
 
-.header .logo:hover {
+.logo:hover {
     color: var(--secondary-color);
     animation-play-state: paused; 
 }
