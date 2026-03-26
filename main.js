@@ -6,6 +6,39 @@ let totalPrice = document.querySelector('.foot .total-price span');
 let sendCart = document.querySelector('.foot a');
 let closeCart = document.querySelector('.close-cart');
 
+
+window.onscroll = () => {
+    document.querySelectorAll('.section').forEach((s) => {
+        if (window.scrollY >= s.offsetTop - screen.height + 300 && window.scrollY <= s.offsetTop) {
+            document.querySelector(`#${s.id} .special-heading`).classList.add('open');
+        } else {
+            document.querySelector(`#${s.id} .special-heading`).classList.remove('open');
+        }
+    })
+}
+
+// let eventDate = new Date('Dec 31, 2025 23:59:59').getTime();
+
+// let counter = setInterval(() => {
+//     let presentDate = new Date().getTime();
+//     let diffDate = eventDate - presentDate;
+//     if (diffDate < 0) {
+//         document.querySelector('.discount .time').innerHTML = 'The Event Starts!';
+//         document.querySelector('.discount .time').style.color = 'var(--main-color)';
+//         document.querySelector('.discount .time').style['font-size'] = '30px';
+//         document.querySelector('.discount .time').style['font-weight'] = 'bold';
+//         clearInterval(counter);
+//     }
+//     let days = Math.floor(diffDate / (1000 * 60 * 60 * 24));
+//     let hours = Math.floor((diffDate % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+//     let minutes = Math.floor((diffDate % (1000 * 60 * 60)) / (1000 * 60));
+//     let seconds = Math.floor((diffDate % (1000 * 60)) / 1000);
+//     document.querySelector('.discount .days').innerHTML = days >= 10 ? days : '0' + days;
+//     document.querySelector('.discount .hours').innerHTML = hours >= 10 ? hours : '0' + hours;
+//     document.querySelector('.discount .minutes').innerHTML = minutes >= 10 ? minutes : '0' + minutes;
+//     document.querySelector('.discount .seconds').innerHTML = seconds >= 10 ? seconds : '0' + seconds;
+// }, 1000);
+
 let cart = new Map();
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -82,16 +115,6 @@ function addItemTo(obj, ele) {
     ele.appendChild(product);
 }
 
-window.onscroll = () => {
-    document.querySelectorAll('.section').forEach((s) => {
-        if (window.scrollY >= s.offsetTop - screen.height + 300 && window.scrollY <= s.offsetTop) {
-            document.querySelector(`#${s.id} .special-heading`).classList.add('open');
-        } else {
-            document.querySelector(`#${s.id} .special-heading`).classList.remove('open');
-        }
-    })
-}
-
 function decQty(p) {
     p.qty--;
     if (p.qty === 0) deleteProduct(p);
@@ -138,7 +161,11 @@ function whatsCart() {
         sendCart.href = 'products.html';
         sendCart.target = '_self';
     } else {
-        sendCart.href = `https://wa.me/963933855160?text=مرحباً\n :\nأود طلب المنتجات${localStorage.esmilecart}`;
+        let message = `مرحباً E-SMILE (: %0Aأود طلب المنتجات التالية:%0A${localStorage.esmilecart.split('|').map(item => {
+            let arr = item.split(',');
+            return `المنتج رقم ${arr[0]} (الكمية: ${arr[1]})`;
+        }).join('%0A')} %0A%0Aشكراً لكم!`;
+        sendCart.href = `https://wa.me/963933855160?text=${message}`;          
         sendCart.target = '_blank';
     }
 }
