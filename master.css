@@ -193,6 +193,8 @@ button {
     animation: logo-pulse 5s infinite ease-in-out;
     cursor: pointer;
     transition: var(--main-transition);
+    display: flex;
+    align-items: center;
 }
 
 @media (max-width: 767px) {
@@ -243,24 +245,42 @@ button {
     color: var(--secondary-color);
 }
 
-.logo .smile {
+.logo .left-smile,
+.logo .right-smile {
     display: inline-block;
-    transform-origin: center;
-    animation: 5s infinite smile-move ease-in-out;
+    width: 20px;
+    height: 30px;
+    border: none;
+    border-radius: 0;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+    animation: smile-move 5s infinite ease-in-out;
+    position: relative;
+    bottom: -2px;
 }
 
+.logo .left-smile {
+    border-left: 4px solid var(--main-color-light);
+    right: -10px;
+}
+
+.logo .right-smile {
+    border-right: 4px solid var(--main-color-light);
+    left: -10px;
+}
+    
 @keyframes smile-move {
     0% {
-        transform: scaleX(1);
+        border-radius: 0%;
     }
 
-    20%,
-    80% {
-        transform: scaleX(-1);
+    30%,
+    70% {
+        border-radius: 50%;
     }
 
     100% {
-        transform: scaleX(1);
+        border-radius: 0%;
     }
 }
 
