@@ -681,6 +681,10 @@ button {
     box-shadow: 0 8px 18px rgba(0, 0, 0, 0.16);
 }
 
+.products .product .price span {
+    font-size: 16px;
+}
+
 .products .product .getItem {
     font-size: 20px;
     text-align: center;

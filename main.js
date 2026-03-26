@@ -111,7 +111,7 @@ function addItemTo(obj, ele) {
 
     let price = document.createElement('span');
     price.className = 'price';
-    price.innerHTML = `$${obj.price}`;
+    price.innerHTML = `<span>$</span>${obj.price.toFixed(2)}`;
     product.appendChild(price);
 
     ele.appendChild(product);
