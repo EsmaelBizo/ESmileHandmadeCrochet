@@ -159,7 +159,7 @@ function updateCartStorage() {
 }
 
 function whatsCart() {
-    if (localStorage.esmilecart === '') {
+    if (localStorage.esmilecart === '' || !localStorage.esmilecart) {
         sendCart.href = 'products.html';
         sendCart.target = '_self';
     } else {
