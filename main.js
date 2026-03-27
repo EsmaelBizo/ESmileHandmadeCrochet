@@ -147,8 +147,6 @@ function addedDone() {
     setTimeout(() => added.classList.remove('appear'), 2300);
 }
 
-whatsCart();
-
 function updateCartStorage() {
     localStorage.esmilecart = '';
     cart.forEach(p => {
