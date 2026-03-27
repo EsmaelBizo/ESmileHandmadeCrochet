@@ -159,17 +159,22 @@ function updateCartStorage() {
 }
 
 function whatsCart() {
-    if (localStorage.esmilecart === '' || !localStorage.esmilecart) {
+    let cartData = localStorage.esmilecart || "";
+
+    if (cartData === "") {
         sendCart.href = 'products.html';
         sendCart.target = '_self';
-    } else {
-        let message = `مرحباً E-SMILE (: %0Aأود طلب المنتجات التالية:%0A${localStorage.esmilecart.split('|').map(item => {
+        return;
+    }
+
+    let message = `مرحباً E-SMILE (: %0Aأود طلب المنتجات التالية:%0A${localStorage.esmilecart.split('|')
+        .filter(item => item.trim() !== "" && item.includes(','))
+        .map(item => {
             let arr = item.split(',');
             return `المنتج رقم ${arr[0]} (الكمية: ${arr[1]})`;
         }).join('%0A')} %0A%0Aشكراً لكم!`;
-        sendCart.href = `https://wa.me/963933855160?text=${message}`;          
-        sendCart.target = '_blank';
-    }
+    sendCart.href = `https://wa.me/963933855160?text=${message}`;          
+    sendCart.target = '_blank';
 }
 
 cartBtn.onclick = () => {
