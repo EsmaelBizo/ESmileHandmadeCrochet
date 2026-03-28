@@ -26,12 +26,13 @@ Experience the live store here: [e-smile.netlify.app](https://e-smile.netlify.ap
 ├── main.js             # Core logic for Cart, Storage, and WhatsApp API
 ├── master.css          # Global styles and animations
 ├── site.webmanifest    # Web App manifest for mobile installs
-└── README.md           # Project documentation
-⚙️ Technical Insight: Cart to WhatsApp
+└── README.md           # Project documentation```
+
+## ⚙️ Technical Insight: Cart to WhatsApp
 The checkout process parses the localStorage string, validates the items, and generates a URI-encoded message to bridge the gap between the web inventory and direct communication:
 https://wa.me/[Phone_Number]?text=[Encoded_Order_Details]
 
-👨‍💻 Author
+## 👨‍💻 Author
 Ismail Informatics Engineering Student & Front-End Developer LinkedIn Profile | GitHub
 
 Developed with a focus on blending technology with traditional arts.
